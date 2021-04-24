@@ -6,8 +6,6 @@ using UnityEngine;
 public class playerShadow : MonoBehaviour
 {
 
-    float rayLength = 5f;
-
     float difference = 10f;
 
     RaycastHit hit;
@@ -21,7 +19,6 @@ public class playerShadow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    int mask = 1 <<LayerMask.NameToLayer("Floor");
         Vector3 newPos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
         Vector3 differenceVector = new Vector3(player.transform.position.x, player.transform.position.y - difference, player.transform.position.z);
 

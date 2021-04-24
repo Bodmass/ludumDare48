@@ -14,9 +14,12 @@ using UnityEngine;
         private void Awake()
         {
             player = GameObject.FindObjectOfType<playerMovement>().transform;
+            transform.position = new Vector3(player.position.x + 0f, player.position.y + 3f, player.position.z -9f);
+            transform.eulerAngles = new Vector3(10f, 0f, 0f);
         }
 
         void Start(){
+
             _cameraOffset = transform.position - player.position;
         }
 
