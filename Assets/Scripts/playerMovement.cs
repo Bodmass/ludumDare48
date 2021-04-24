@@ -32,7 +32,7 @@ public class playerMovement : MonoBehaviour
 
         m_Animator.SetFloat("moveX",movement.x);
         m_Animator.SetFloat("moveZ",movement.z);
-        m_Animator.SetFloat("velocity", m_Rigidbody.velocity.y);
+
 
         movement = cameraTransform.TransformDirection(movement);
         movement.y = 0.0f;
