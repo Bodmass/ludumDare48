@@ -14,7 +14,11 @@ public class playerJump : MonoBehaviour
 
     float difference = 0.1f;
 
-    void Start(){
+    private Animator m_Animator;
+
+    void Start()
+    {
+        m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -31,10 +35,12 @@ public class playerJump : MonoBehaviour
         if(Physics.Linecast(transform.position, differenceVector))
         {
             isGrounded = true;
+            m_Animator.SetFloat("velocity", 0);
         }
         else
         {
             isGrounded = false;
+            m_Animator.SetFloat("velocity", m_Rigidbody.velocity.y);
         }
         
     }
