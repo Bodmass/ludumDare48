@@ -20,9 +20,13 @@ public class playerJump : MonoBehaviour
 
     [SerializeField] private float difference = 0.1f;
         [SerializeField] private float distance = 0.1f;
+
+        public float sphereRadius = 0.25f;
     
 
     private Animator m_Animator;
+
+    private bool RaycastResult;
 
     void Start()
     {
@@ -31,6 +35,13 @@ public class playerJump : MonoBehaviour
     }
 
     void Update(){
+
+        RaycastHit hit;
+        Vector3 newPos = transform.position;
+        newPos.y += distance;
+        //Ray landingRay = new Ray(newPos, Vector3.down);
+        Debug.DrawRay(newPos, Vector3.down * distance);
+        
 
         if(Input.GetButtonDown("Jump"))
         {
@@ -50,20 +61,14 @@ public class playerJump : MonoBehaviour
          m_Rigidbody.AddForce(jump * m_jumpForce, ForceMode.Impulse);
         }
 
-        RaycastHit hit;
-        Vector3 newPos = transform.position;
-        newPos.y = transform.position.y - difference;
-        Ray landingRay = new Ray(newPos, Vector3.down);
-        Debug.DrawRay(newPos, Vector3.down * distance);
-
         // Cast a ray straight downwards.
-        if (Physics.Raycast(landingRay, out hit, distance))
+        if (Physics.SphereCast(newPos, sphereRadius, Vector3.down, out hit, distance))
         {
             if(hit.collider != null)
             {
                 m_jumpCount = m_jumpMax;
                 isGrounded = true;
-                m_Animator.SetFloat("velocity", 0);
+                m_Animator.SetBool("isGrounded", true);
             }
         }
         else
@@ -74,8 +79,15 @@ public class playerJump : MonoBehaviour
                 m_jumpCount -=1;
             }
             m_Animator.SetFloat("velocity", m_Rigidbody.velocity.y);
+            m_Animator.SetBool("isGrounded", false);
         }
-        
+
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + distance, transform.position.z)+ Vector3.down, sphereRadius);
     }
 
 }
