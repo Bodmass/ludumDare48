@@ -71,6 +71,7 @@ public class PlayerEssenceManager : MonoBehaviour
 
     public void IncreaseEssenceCap(int amountToIncrease)
     {
-        essenceMax =+ amountToIncrease;
+        Debug.Log("Essence Cap Increased by "+amountToIncrease);
+        essenceMax += amountToIncrease;
     }
 }

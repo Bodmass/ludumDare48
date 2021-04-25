@@ -25,8 +25,6 @@ using UnityEngine;
 
         private void LateUpdate()
         {
-            
-
 
             Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * RotationSpeed, Vector3.up);
         
