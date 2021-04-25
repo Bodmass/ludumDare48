@@ -142,10 +142,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.5
+  m_Radius: 0.25
+  m_Height: 1.3753477
   m_Direction: 1
-  m_Center: {x: 0, y: 0.76, z: 0}
+  m_Center: {x: 0, y: 0.69767386, z: 0}
 --- !u!54 &375874487638361461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,14 +187,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017764f1230c04fbf92f6c127df5c68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_jumpForce: 2
+  m_jumpForce: 3
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   m_jumpMax: 1
   isGrounded: 1
   difference: -0.05
-  distance: 0.05
+  distance: 1
+  sphereRadius: 0.25
 --- !u!95 &2103138741
 Animator:
   serializedVersion: 3
