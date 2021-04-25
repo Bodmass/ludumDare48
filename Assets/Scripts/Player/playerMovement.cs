@@ -28,6 +28,11 @@ public class playerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(GetComponent<ConversationManager>().isTalking)
+        {
+            return;
+        }
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         m_Animator.SetFloat("moveX",movement.x);
@@ -45,6 +50,11 @@ public class playerMovement : MonoBehaviour
     }
 
     void Update() {
+
+            if(GetComponent<ConversationManager>().isTalking)
+            {
+                return;
+            }
 
         if(Input.GetKeyDown(KeyCode.A))
         {

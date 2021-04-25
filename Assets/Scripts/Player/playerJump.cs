@@ -35,6 +35,10 @@ public class playerJump : MonoBehaviour
     }
 
     void Update(){
+                    if(GetComponent<ConversationManager>().isTalking)
+            {
+                return;
+            }
 
         RaycastHit hit;
         Vector3 newPos = transform.position;
