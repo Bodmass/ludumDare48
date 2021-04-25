@@ -9,6 +9,10 @@ public class playerJump : MonoBehaviour
     [SerializeField] private float m_jumpForce = 2f;
     private Rigidbody m_Rigidbody;
 
+    private int m_jumpCount = 0;
+    [SerializeField] private int m_jumpMax = 1;
+    
+
     private bool isGrounded;
 
 
@@ -26,6 +30,14 @@ public class playerJump : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            m_jumpCount -=1;
+         m_Rigidbody.AddForce(jump * m_jumpForce, ForceMode.Impulse);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && !isGrounded && m_jumpCount > 0)
+        {
+            m_Rigidbody.velocity = new Vector3  (0, 0, 0);
+            m_jumpCount -=1;
          m_Rigidbody.AddForce(jump * m_jumpForce, ForceMode.Impulse);
         }
 
@@ -34,12 +46,17 @@ public class playerJump : MonoBehaviour
 
         if(Physics.Linecast(transform.position, differenceVector))
         {
+            m_jumpCount = m_jumpMax;
             isGrounded = true;
             m_Animator.SetFloat("velocity", 0);
         }
         else
         {
             isGrounded = false;
+            if(m_jumpCount == m_jumpMax)
+            {
+                m_jumpCount -=1;
+            }
             m_Animator.SetFloat("velocity", m_Rigidbody.velocity.y);
         }
         
