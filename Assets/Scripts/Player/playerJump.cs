@@ -6,17 +6,21 @@ using UnityEngine;
 public class playerJump : MonoBehaviour
 {
     private Vector3 jump = new Vector3(0.0f, 2.0f, 0.0f);
-    [SerializeField] private float m_jumpForce = 2f;
+    [SerializeField] private float m_jumpForce = 2f; 
     private Rigidbody m_Rigidbody;
+
+    [SerializeField] LayerMask layerMask;
 
     private int m_jumpCount = 0;
     [SerializeField] private int m_jumpMax = 1;
     
 
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
 
 
-    float difference = 0.1f;
+    [SerializeField] private float difference = 0.1f;
+        [SerializeField] private float distance = 0.1f;
+    
 
     private Animator m_Animator;
 
@@ -28,30 +32,42 @@ public class playerJump : MonoBehaviour
 
     void Update(){
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("jumpPressed!");
+        }
+
+        if(Input.GetButtonDown("Jump") && isGrounded)
         {
             m_jumpCount -=1;
          m_Rigidbody.AddForce(jump * m_jumpForce, ForceMode.Impulse);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && !isGrounded && m_jumpCount > 0)
+        if(Input.GetButtonDown("Jump") && !isGrounded && m_jumpCount > 0)
         {
             m_Rigidbody.velocity = new Vector3  (0, 0, 0);
             m_jumpCount -=1;
          m_Rigidbody.AddForce(jump * m_jumpForce, ForceMode.Impulse);
         }
 
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Vector3 differenceVector = new Vector3(transform.position.x, transform.position.y - difference, transform.position.z);
+        RaycastHit hit;
+        Vector3 newPos = transform.position;
+        newPos.y = transform.position.y - difference;
+        Ray landingRay = new Ray(newPos, Vector3.down);
+        Debug.DrawRay(newPos, Vector3.down * distance);
 
-        if(Physics.Linecast(transform.position, differenceVector))
+        // Cast a ray straight downwards.
+        if (Physics.Raycast(landingRay, out hit, distance))
         {
-            m_jumpCount = m_jumpMax;
-            isGrounded = true;
-            m_Animator.SetFloat("velocity", 0);
+            if(hit.collider != null)
+            {
+                m_jumpCount = m_jumpMax;
+                isGrounded = true;
+                m_Animator.SetFloat("velocity", 0);
+            }
         }
         else
-        {
+        {          
             isGrounded = false;
             if(m_jumpCount == m_jumpMax)
             {
