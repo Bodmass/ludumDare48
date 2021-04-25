@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 8447140069412112013}
   - component: {fileID: 8447140069412112012}
   - component: {fileID: 8447140069412112015}
+  - component: {fileID: 702869088}
   m_Layer: 5
   m_Name: Whisper
   m_TagString: Untagged
@@ -322,10 +323,29 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8447140069412112009}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!95 &702869088
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447140069412112009}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d80bf2a1a337b411180028dbb5d94875, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8447140069676004528
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A VOICE INSIDE YOUR HEAD APPEARS HERE
+  m_text: YOU BECOME INFUSED WITH A DREAM ESSENCE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: afe86364a7d2846f3a2d8f96e16d4efd, type: 2}

@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 375874487638361418}
   - component: {fileID: 375874487638361462}
   - component: {fileID: 2103138741}
+  - component: {fileID: 1353499715}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,3 +216,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1353499715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375874487638361419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e341db199d7db4d2285da30c01e61ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  essenceBuffGO: {fileID: 8985853986979976, guid: da3c5457c43a8439586ba9896d9b8ccb, type: 3}
+  EssenceText: {fileID: 0}
+  essenceCount_: 0
+  essenceMax: 3
+  whisperAnimator: {fileID: 0}
+  whisperDuration: 5
+  whisperText: {fileID: 0}
