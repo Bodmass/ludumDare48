@@ -4916,4 +4916,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fdd497896f34f4cad5f04c4b878d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  essenceBuffGO: {fileID: 8985853986979976, guid: da3c5457c43a8439586ba9896d9b8ccb, type: 3}
   fadingScale: 2
