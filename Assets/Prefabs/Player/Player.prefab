@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 375874487638361462}
   - component: {fileID: 2103138741}
   - component: {fileID: 1353499715}
+  - component: {fileID: 4737551363392739862}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -235,3 +236,18 @@ MonoBehaviour:
   whisperAnimator: {fileID: 0}
   whisperDuration: 5
   whisperText: {fileID: 0}
+--- !u!114 &4737551363392739862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375874487638361419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa823e64a89d4f8d82e17b0daee95ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 0}
+  textBoxText: {fileID: 0}
+  TextSpeed: 0.05
