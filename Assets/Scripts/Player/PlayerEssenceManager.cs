@@ -74,19 +74,19 @@ public class PlayerEssenceManager : MonoBehaviour
             {
                 trig.TriggerMe();
             }
-            Whisper("You become infused with a power of a dream essence.\nYou feel as if you can leap once more!");
+            Whisper("The Dream Essence empowers you!\nYou feel as if you can leap once more!");
             GetComponent<playerJump>().IncreaseMaxJumps(1);
         }
         else if(essenceCount == 6)
         {
-            Whisper("You become infused with a power of a dream essence.\nYou feel as if a Gateway as opened somewhere.");
+            Whisper("Your mind awakens.\nYou feel as if a Gateway has opened somewhere.");
             foreach(Triggerable trig in triggerableAt6)
             {
                 trig.TriggerMe();
             }
         }
         else{
-            Whisper("You become infused with a power of a dream essence!");
+            Whisper("You become infused with a dream essence!");
         }
         Destroy(newGO, 10f);
     }
