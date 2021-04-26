@@ -22,6 +22,9 @@ public class PlayerEssenceManager : MonoBehaviour
     public int essenceCount{
         get {return essenceCount_;}
     }
+    [SerializeField] private Triggerable[] triggerableAt3;
+    [SerializeField] private Triggerable[] triggerableAt6;
+
 
     void Start()
     {
@@ -67,8 +70,20 @@ public class PlayerEssenceManager : MonoBehaviour
         essenceCount_+=1;
         if(essenceCount == 3)
         {
+            foreach(Triggerable trig in triggerableAt3)
+            {
+                trig.TriggerMe();
+            }
             Whisper("You become infused with a power of a dream essence.\nYou feel as if you can leap once more!");
             GetComponent<playerJump>().IncreaseMaxJumps(1);
+        }
+        else if(essenceCount == 6)
+        {
+            Whisper("You become infused with a power of a dream essence.\nYou feel as if a Gateway as opened somewhere.");
+            foreach(Triggerable trig in triggerableAt6)
+            {
+                trig.TriggerMe();
+            }
         }
         else{
             Whisper("You become infused with a power of a dream essence!");

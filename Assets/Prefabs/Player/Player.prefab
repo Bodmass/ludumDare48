@@ -236,6 +236,8 @@ MonoBehaviour:
   whisperAnimator: {fileID: 0}
   whisperDuration: 5
   whisperText: {fileID: 0}
+  triggerableAt3: []
+  triggerableAt6: []
 --- !u!114 &4737551363392739862
 MonoBehaviour:
   m_ObjectHideFlags: 0
