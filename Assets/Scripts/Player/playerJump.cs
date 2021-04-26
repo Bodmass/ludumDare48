@@ -88,6 +88,11 @@ public class playerJump : MonoBehaviour
 
     }
 
+    public void IncreaseMaxJumps(int amount)
+    {
+        m_jumpMax+= amount;
+    }
+
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
 
