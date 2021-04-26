@@ -59,20 +59,40 @@ public class ConversationManager : MonoBehaviour
             Debug.Log("Conversation " + currentIndex+"/"+conversationLength);
             ConversationTextNode currentTextNode = (ConversationTextNode)currentConversation.conversationNodes[currentIndex];
 
-            if(currentTextNode.GetType() == typeof(ConversationEssenceNode))
+            if(currentTextNode.GetType() != typeof(ConversationTextNode))
             {
-                ConversationEssenceNode essenceNode = (ConversationEssenceNode)currentTextNode;
-                if(essenceNode.obtained)
+                if(currentTextNode.GetType() == typeof(ConversationEssenceNode))
                 {
-                    ProceedConversation();
+                    ConversationEssenceNode essenceNode = (ConversationEssenceNode)currentTextNode;
+                    if(essenceNode.obtained)
+                    {
+                        ProceedConversation();
+                    }
+                    else{
+                        currentConversation.conversationNodes[currentIndex].UseNode();
+                        textBoxText.text = "";
+                        currentText = "";
+                        textToShow = currentTextNode.text;
+                        StartCoroutine(BuildText());
+                    }
+                }
+                else if(currentTextNode.GetType() == typeof(ConversationTriggerNode))
+                {
+                    ConversationTriggerNode triggerNode = (ConversationTriggerNode)currentTextNode;
+                    if(triggerNode.activated)
+                    {
+                        ProceedConversation();
+                    }
+                    else{
+                        currentConversation.conversationNodes[currentIndex].UseNode();
+                        textBoxText.text = "";
+                        currentText = "";
+                        textToShow = currentTextNode.text;
+                        StartCoroutine(BuildText());
+                    }
                 }
                 else{
-
-                currentConversation.conversationNodes[currentIndex].UseNode();
-                textBoxText.text = "";
-                currentText = "";
-                textToShow = currentTextNode.text;
-                StartCoroutine(BuildText());
+                    ProceedConversation();
                 }
             }
             else

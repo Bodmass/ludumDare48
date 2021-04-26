@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017764f1230c04fbf92f6c127df5c68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_jumpForce: 3
+  m_jumpForce: 2.5
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -232,7 +232,7 @@ MonoBehaviour:
   essenceBuffGO: {fileID: 8985853986979976, guid: da3c5457c43a8439586ba9896d9b8ccb, type: 3}
   EssenceText: {fileID: 0}
   essenceCount_: 0
-  essenceMax: 3
+  essenceMax: 0
   whisperAnimator: {fileID: 0}
   whisperDuration: 5
   whisperText: {fileID: 0}
