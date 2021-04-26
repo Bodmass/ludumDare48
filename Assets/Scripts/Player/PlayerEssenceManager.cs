@@ -65,7 +65,14 @@ public class PlayerEssenceManager : MonoBehaviour
         GameObject newGO = GameObject.Instantiate(essenceBuffGO, Vector3.zero, Quaternion.identity, this.transform);
         newGO.transform.localPosition = Vector3.zero;
         essenceCount_+=1;
-        Whisper("You become infused with a power of a dream essence!");
+        if(essenceCount == 3)
+        {
+            Whisper("You become infused with a power of a dream essence.\nYou feel as if you can leap once more!");
+            GetComponent<playerJump>().IncreaseMaxJumps(1);
+        }
+        else{
+            Whisper("You become infused with a power of a dream essence!");
+        }
         Destroy(newGO, 10f);
     }
 
